@@ -1,0 +1,44 @@
+.layout {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-between;
+}
+
+.layout > header {
+	flex: 0 0 25%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.layout > header > h1 {
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 500;
+	font-size: 1.25rem;
+	letter-spacing: 0.5rem;
+}
+
+.layout > main {
+	flex: 0 0 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.layout > footer {
+	flex: 0 0 25%;
+	background-image: url("../../../public/pattern-hills.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
