@@ -1,0 +1,7 @@
+.counter {
+	display: flex;
+	flex-direction: row;
+	width: 60%;
+	max-width: 40rem;
+	justify-content: space-evenly;
+}

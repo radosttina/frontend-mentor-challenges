@@ -15,7 +15,7 @@ const Layout = () => {
 			</main>
 			<footer>
 				<SocialMediaLinks />
-				<Acknowledgements />
+				{/* <Acknowledgements /> */}
 			</footer>
 		</div>
 	);

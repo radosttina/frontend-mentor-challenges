@@ -6,6 +6,13 @@ body {
 
 :root {
 	--white: hsl(0, 0%, 100%);
+	--off-white: #8385a9;
+	--soft-red: hsl(345, 95%, 68%);
+
+	--grayish-blue: hsl(237, 18%, 59%);
+	--dark-desaturated-blue: hsl(236, 21%, 26%);
+	--dark-blue: hsl(235, 16%, 14%);
+	--very-dark-blue: hsl(234, 17%, 12%);
 }
 
 body {

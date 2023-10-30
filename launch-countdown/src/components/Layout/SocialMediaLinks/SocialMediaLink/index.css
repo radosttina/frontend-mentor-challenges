@@ -1,0 +1,7 @@
+.social-media-link {
+	color: var(--off-white);
+}
+
+a.social-media-link:hover {
+	color: var(--soft-red);
+}
