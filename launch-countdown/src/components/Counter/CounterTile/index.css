@@ -75,18 +75,18 @@
 	animation: none;
 }
 
-.facet-container > .facet-top.current {
+.animated .facet-container > .facet-top.current {
 	transform: rotateX(0deg);
 	animation: 0.5s linear 0s 1 top-tile-fade-out forwards;
 }
 
-.facet-container > .facet-bottom.next {
+.animated .facet-container > .facet-bottom.next {
 	z-index: 1;
 	transform: rotateX(270deg);
 	animation: 0.7s linear 0.4s 1 bottom-tile-fade-in forwards;
 }
 
-.facet-container > .facet-top.next {
+.animated .facet-container > .facet-top.next {
 	z-index: 0;
 	transform: rotateX(0deg);
 	animation: none;
@@ -105,21 +105,17 @@
 @keyframes top-tile-fade-out {
 	from {
 		transform: rotateX(0deg);
-		z-index: 1;
 	}
 	to {
 		transform: rotateX(90deg);
-		z-index: -1;
 	}
 }
 
 @keyframes bottom-tile-fade-in {
 	from {
-		z-index: 1;
 		transform: rotateX(270deg);
 	}
 	to {
-		z-index: 2;
 		transform: rotateX(360deg);
 	}
 }

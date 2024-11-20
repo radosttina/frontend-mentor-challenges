@@ -1,21 +1,16 @@
-import Counter from "../Counter";
-import Acknowledgements from "./Acknowledgements";
 import SocialMediaLinks from "./SocialMediaLinks";
 
 import "./index.css";
 
-const Layout = () => {
+const Layout = ({ children }) => {
 	return (
 		<div className="layout">
 			<header>
 				<h1>We're launching soon</h1>
 			</header>
-			<main>
-				<Counter />
-			</main>
+			<main>{children}</main>
 			<footer>
 				<SocialMediaLinks />
-				{/* <Acknowledgements /> */}
 			</footer>
 		</div>
 	);

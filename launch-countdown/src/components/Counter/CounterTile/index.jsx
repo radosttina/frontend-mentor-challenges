@@ -8,7 +8,7 @@ const format = (count) => {
 
 const CounterTile = ({ current, next, durationType }) => {
 	return (
-		<div className="counter-tile">
+		<div className={`${current !== next ? "animated" : ""} counter-tile`}>
 			<div key={Math.random()} className="facet-container">
 				<div className="next facet facet-top">{format(next)}</div>
 				<div className="next facet facet-bottom">{format(next)}</div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
 import CounterTile from "./CounterTile";
 
 import "./index.css";
@@ -17,52 +17,59 @@ const NORMALIZERS = Object.freeze({
 	days: (count) => Math.floor(count / DURATION_LENGTHS.days),
 });
 
-const Counter = () => {
-	const countdownTime = 56655;
+function reducer(state, action) {
+	if (action.type === "decrement") {
+		return {
+			current: state.current - 1,
+		};
+	}
 
-	const [current, setCurrent] = useState(countdownTime);
+	throw Error("Unknown action.");
+}
+
+const Counter = ({ countdownTimeMs }) => {
+	const [state, dispatch] = useReducer(reducer, {
+		current: countdownTimeMs,
+	});
 
 	useEffect(() => {
 		let iteration = 0;
 		const interval = setInterval(() => {
 			iteration++;
 
-			if (iteration === countdownTime) {
+			if (iteration === countdownTimeMs) {
 				clearInterval(interval);
+				return;
 			}
 
-			setCurrent(() => countdownTime - iteration);
+			dispatch({ type: "decrement" });
 		}, 1000);
 
 		return () => {
 			clearInterval(interval);
 		};
-	}, []);
+	}, [countdownTimeMs]);
 
 	return (
 		<div className="counter">
 			<CounterTile
-				current={NORMALIZERS.days(current + DURATION_LENGTHS.days)}
-				next={NORMALIZERS.days(current)}
+				current={NORMALIZERS.days(state.current)}
+				next={NORMALIZERS.days(state.current - 1)}
 				durationType="days"
 			/>
 			<CounterTile
-				current={NORMALIZERS.hours(current + DURATION_LENGTHS.hours)}
-				next={NORMALIZERS.hours(current)}
+				current={NORMALIZERS.hours(state.current)}
+				next={NORMALIZERS.hours(state.current - 1)}
 				durationType="hours"
 			/>
 			<CounterTile
-				current={NORMALIZERS.minutes(
-					current + DURATION_LENGTHS.minutes
-				)}
-				next={NORMALIZERS.minutes(current)}
+				current={NORMALIZERS.minutes(state.current)}
+				next={NORMALIZERS.minutes(state.current - 1)}
 				durationType="minutes"
 			/>
 			<CounterTile
-				current={NORMALIZERS.seconds(
-					current + DURATION_LENGTHS.seconds
-				)}
-				next={NORMALIZERS.seconds(current)}
+				current={NORMALIZERS.seconds(state.current)}
+				next={NORMALIZERS.seconds(state.current - 1)}
 				durationType="seconds"
 			/>
 		</div>
